@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopPropagation() - stops bubbling/capturing</title>
+</head>
+
+<body>
+    <div id="outer">
+        <button id="inner">Click me</button>
+    </div>
+</body>
+
+<script>
+    document.getElementById("outer").addEventListener("click", () => {
+        console.log("outer clicked!");
+    });
+
+    document.getElementById("inner").addEventListener("click", (event) => {
+        event.stopPropagation(); // prevents bubbling
+        console.log("inner clicked!");
+    });
+</script>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Propagation Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 2rem;
+        }
+
+        .box {
+            padding: 30px;
+            border: 2px solid #333;
+            margin-bottom: 20px;
+            background-color: #f0f0f0;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Event Propagation Demo</h1>
+
+    <h2>stopPropagation()</h2>
+    <div class="box" id="parent1">
+        Parent Box (click logs "Parent 1")
+        <br><br>
+        <button id="child1">Click Me (Child 1)</button>
+    </div>
+
+    <h2>stopImmediatePropagation()</h2>
+    <div class="box" id="parent2">
+        Parent Box (click logs "Parent 2")
+        <br><br>
+        <button id="child2">Click Me (Child 2)</button>
+    </div>
+
+    <script>
+        // stopPropagation Example
+        document.getElementById("parent1").addEventListener("click", () => {
+            console.log("Parent 1 clicked!");
+        });
+
+        document.getElementById("child1").addEventListener("click", (e) => {
+            e.stopPropagation();
+            console.log("Child 1 clicked!");
+        });
+
+        // stopImmediatePropagation Example
+        document.getElementById("parent2").addEventListener("click", () => {
+            console.log("Parent 2 clicked!");
+        });
+
+        const child2 = document.getElementById("child2");
+
+        child2.addEventListener("click", () => {
+            console.log("Child 2 - Handler 1");
+        });
+
+        child2.addEventListener("click", (e) => {
+            e.stopImmediatePropagation();
+            console.log("Child 2 - Handler 2 (stops all)");
+        });
+
+        child2.addEventListener("click", () => {
+            console.log("Child 2 - Handler 3");
+        });
+    </script>
+
+</body>
+
+</html>

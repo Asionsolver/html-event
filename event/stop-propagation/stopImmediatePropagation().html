@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopImmediatePropagation() — stops everything immediately</title>
+</head>
+
+<body>
+    <button id="myButton">Click</button>
+    <script>
+        const btn = document.getElementById("myButton");
+
+        btn.addEventListener("click", () => {
+            console.log("Handler 1");
+        });
+
+        btn.addEventListener("click", (e) => {
+            e.stopImmediatePropagation(); // stops ALL further listeners on this element
+            console.log("Handler 2");
+        });
+
+        btn.addEventListener("click", () => {
+            console.log("Handler 3");
+        });
+    </script>
+</body>
+
+</html>

@@ -264,30 +264,6 @@ if (event.target.matches('button[data-type="delete"]')) {
 }
 ```
 
-```html
-
-```
-
-```javascript
-
-```
-
-```html
-
-```
-
-```javascript
-
-```
-
-```html
-
-```
-
-```javascript
-
-```
-
 ## 👨‍🏫 Real-World Use Cases
 
 | Use Case               | Description                                               |
